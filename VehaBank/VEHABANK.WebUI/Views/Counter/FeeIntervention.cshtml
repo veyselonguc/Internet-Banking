@@ -1,0 +1,25 @@
+@{
+    Layout = "_UserPageLayout";
+    ViewData["Title"] = "İşlem Ücreti Müdahalesi";
+}
+
+<h2>İşlem Ücreti Müdahalesi</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="TransactionNumber" class="form-label">İşlem Numarası</label>
+        <input type="text" class="form-control" id="TransactionNumber" name="TransactionNumber" required />
+    </div>
+    <div class="mb-3">
+        <label for="NewFee" class="form-label">Yeni Ücret (TL)</label>
+        <input type="number" class="form-control" id="NewFee" name="NewFee" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Ücreti Güncelle</button>
+</form>
+
+<p>Burada işlem ücreti müdahalesi işlemleri olacak.</p> 

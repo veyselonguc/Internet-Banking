@@ -1,0 +1,19 @@
+@{
+    Layout = "_UserPageLayout";
+    ViewData["Title"] = "Hesap Onayı / Aktifleştirme";
+}
+
+<h2>Hesap Onayı / Aktifleştirme</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="AccountNumber" class="form-label">Hesap Numarası</label>
+        <input type="text" class="form-control" id="AccountNumber" name="AccountNumber" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Onayla / Aktifleştir</button>
+</form> 

@@ -1,0 +1,13 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build klasörleri
+bin/
+obj/
+
+# Diğer
+*.log
+*.db
+*.DS_Store

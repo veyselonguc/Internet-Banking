@@ -1,0 +1,19 @@
+@{
+    Layout = "_UserPageLayout";
+    ViewData["Title"] = "Kart Blokesi Kaldırma";
+}
+
+<h2>Kart Blokesi Kaldırma</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="CardNumber" class="form-label">Kart Numarası</label>
+        <input type="text" class="form-control" id="CardNumber" name="CardNumber" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Blokeyi Kaldır</button>
+</form> 

@@ -1,0 +1,79 @@
+@{
+    Layout = "_UserPageLayout";
+    ViewData["Title"] = "Fatura Ödeme";
+}
+
+<h2>Fatura Ödeme</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="InvoiceNumber" class="form-label">Fatura No</label>
+        <input type="text" class="form-control" id="InvoiceNumber" name="InvoiceNumber" required oninput="fillInvoiceInfo()" />
+    </div>
+    <div class="mb-3">
+        <label for="Amount" class="form-label">Tutar</label>
+        <input type="number" class="form-control" id="Amount" name="Amount" readonly />
+    </div>
+    <div class="mb-3">
+        <label for="Type" class="form-label">Fatura Türü</label>
+        <input type="text" class="form-control" id="Type" name="Type" readonly />
+    </div>
+    <button type="submit" class="btn btn-primary">Faturayı Öde</button>
+</form>
+
+<hr />
+<h4>Ödeme Geçmişi</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Fatura No</th>
+            <th>Tutar</th>
+            <th>Fatura Türü</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>123456</td>
+            <td>250 TL</td>
+            <td>Elektrik</td>
+            <td>2024-06-01</td>
+        </tr>
+        <tr>
+            <td>654321</td>
+            <td>120 TL</td>
+            <td>Su</td>
+            <td>2024-05-15</td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+<script>
+function fillInvoiceInfo() {
+    var invoiceNo = document.getElementById('InvoiceNumber').value;
+    var amount = '';
+    var type = '';
+    if(invoiceNo === '123456') {
+        amount = 250;
+        type = 'Elektrik';
+    } else if(invoiceNo === '654321') {
+        amount = 120;
+        type = 'Su';
+    } else if(invoiceNo === '111111') {
+        amount = 300;
+        type = 'Doğalgaz';
+    } else {
+        amount = '';
+        type = '';
+    }
+    document.getElementById('Amount').value = amount;
+    document.getElementById('Type').value = type;
+}
+</script>
+} 
